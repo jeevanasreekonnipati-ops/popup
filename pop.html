@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><a href="http://example.com" target="_blank" rel="noopener noreferrer">NIMated Popup Blast</a></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background: #111;
+      color: white;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: #ff4444;
+      color: white;
+      padding: 40px 60px;
+      border-radius: 10px;
+      font-size: 2em;
+      font-weight: bold;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+      opacity: 0;
+      transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    }
+
+    .popup.show {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 1;
+      animation: blast 0.6s ease-out forwards;
+    }
+
+    @keyframes blast {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background: #28a745;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>Click the button for NIMted Popup</h1>
+  <button onclick="showPopup()">Show Popup</button>
+
+  <div id="popup" class="popup">Hi 👋</div>
+
+  <script>
+    function showPopup() {
+      const popup = document.getElementById("popup");
+      popup.classList.add("show");
+
+      // Hide after 2 seconds
+      setTimeout(() => {
+        popup.classList.remove("show");
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
